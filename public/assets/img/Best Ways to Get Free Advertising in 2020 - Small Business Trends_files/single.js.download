@@ -1,0 +1,10 @@
+function smb_set_single_popup(id){if(document.referrer.indexOf("http://smallbiztrends.com")<=-1){createCookie('came_in_from_google','true',.1);}else{came_in_from_google=readCookie('came_in_from_google');if(came_in_from_google=="true"){jQuery("html").mouseleave(function(){var cookie_name='smb_single_popup_message_id_'+id;views=readCookie(cookie_name);console.log(views);if(views==null){jQuery.colorbox({inline:true,width:"50%",href:"#colorbox-popup",scrolling:false,height:"650px",className:"article-popup"});}
+if(views==null){views=1;}else{views=parseInt(views)+1;}
+createCookie(cookie_name,views,30);});eraseCookie('came_in_from_google');}}}
+function smb_set_share_buttons_in_popup(){if($(window).width()>1230){$(function(){$(".post-meta-side-share-wrap").stick_in_parent({parent:'#main-content',offset_top:100});});$('.post-meta-footer2').hide();}else{$(".post-meta-side-share-wrap").hide();}
+$('.popup-share-buttons a').click(function(event){if(this.href.indexOf("bizsugar.com")>=0){window.open(this.href,'_blank');return false;}
+var width=575,height=450,left=($(window).width()-width)/2,top=($(window).height()-height)/2,url=this.href,opts='status=1'+
+',width='+width+
+',height='+height+
+',top='+top+
+',left='+left;window.open(url,'share',opts);return false;});}

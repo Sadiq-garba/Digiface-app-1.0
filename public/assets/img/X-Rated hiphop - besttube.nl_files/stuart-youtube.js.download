@@ -1,0 +1,125 @@
+(function ($) {
+
+    var searchQuery = null;
+    $('.styt-input-search').on('keypress', function (e) {
+        if(e.keyCode == 13)
+        {
+            searchQuery = $(this).val();
+            if(searchQuery !== null) {
+                searchYoutube(searchQuery);
+            }
+        }
+
+    });
+    
+    // Search for a specified string.
+    function searchYoutube(query) {
+
+      var q = query;
+      var request = gapi.client.youtube.search.list({
+        q: q,
+        part: 'snippet',
+        maxResults: 20,
+        type: 'video'
+      });
+
+
+      request.then(function(response) {
+            $('.entry-title').text('Search results for \'' + query + '\'');
+
+            $('.entry-content').empty();
+        
+            var html = '<ul class="styt-list">';
+            $.each(response.result.items, function (index, item1) {
+                var publishDate = moment(item1.snippet.publishedAt);
+                html += '<li><h3 class="styt-title"><a class="styt-link" href="https://www.youtube.com/watch?v=' + item1.id.videoId + '">' + item1.snippet.title + '</a></h3>';
+                html += '<a class="styt-link" href="https://www.youtube.com/watch?v=' + item1.id.videoId + '"><img class="styt-thumbnail" src=' + item1.snippet.thumbnails.high.url + ' /></a>';
+                html += '<div class="styt-meta">' + item1.snippet.channelTitle + '</div>';
+                html += '<div class="styt-meta">' + publishDate.fromNow() + '</div>';
+                html +="</li>";
+
+
+            });
+            html+="</ul>";
+            $('.entry-content').append(html);
+
+            $('.entry-content').append('<button class="styt-button-loadmore" data-next_page_token="' + response.result.nextPageToken + '">Load more</button>');
+
+        }, function(reason) {
+              console.log('Error: ' + reason.result.error.message);
+              var message = '<p>Oops, something went wrong.</p>'
+              $('.entry-content').empty().append(message);
+
+        });
+
+    }
+
+    function searchMoreYoutube(query, token) {
+        var q = query;
+        var request = gapi.client.youtube.search.list({
+            q: q,
+            part: 'snippet',
+            maxResults: 20,
+            type: 'video',
+            pageToken: token
+        });
+
+        request.then(function(response) {
+            var html = '';
+            $.each(response.result.items, function (index, item1) {
+                var publishDate = moment(item1.snippet.publishedAt);
+                html += '<li><h3 class="styt-title"><a class="styt-link" href="https://www.youtube.com/watch?v=' + item1.id.videoId + '">' + item1.snippet.title + '</a></h3>';
+                html += '<a class="styt-link" href="https://www.youtube.com/watch?v=' + item1.id.videoId + '"><img class="styt-thumbnail" src=' + item1.snippet.thumbnails.high.url + ' /></a>';
+                html += '<div class="styt-meta">' + item1.snippet.channelTitle + '</div>';
+                html += '<div class="styt-meta">' + publishDate.fromNow() + '</div>';
+                html +="</li>";
+
+
+            });
+            $('.styt-list').append(html);
+
+            $('.styt-button-loadmore').remove();
+            $('.entry-content').append('<button class="styt-button-loadmore" data-next_page_token="' + response.result.nextPageToken + '">Load more</button>');
+
+
+
+        }, function(reason) {
+              console.log('Error: ' + reason.result.error.message);
+              var message = '<p>Oops, something went wrong.</p>'
+              $('.entry-content').empty().append(message);
+
+        });
+
+    }
+
+    $('body').on('click', '.styt-button-loadmore', function (e) {
+        e.preventDefault();
+
+        var nextPageToken = $(this).data('next_page_token');
+        searchMoreYoutube(searchQuery, nextPageToken);
+    });
+
+    $('.entry-content').magnificPopup({
+        delegate: 'a.styt-link',
+        type: 'iframe',
+        iframe: {
+            patterns: {
+              youtube: {
+                  index: 'youtube.com/', // String that detects type of video (in this case YouTube). Simply via url.indexOf(index).
+
+                  id: 'v=', // String that splits URL in a two parts, second part should be %id%
+                  // Or null - full URL will be returned
+                  // Or a function that should return %id%, for example:
+                  // id: function(url) { return 'parsed id'; }
+
+                  src: '//www.youtube.com/embed/%id%?autoplay=1' // URL that will be set as a source for iframe.
+                }
+            }
+        }
+      
+      
+    });
+
+
+
+}(jQuery));

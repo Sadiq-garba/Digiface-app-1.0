@@ -1,0 +1,43 @@
+.styt-input-search {
+	display: inline-block;
+	width: 100%;
+	max-width: 600px;
+	padding: 6px 8px;
+}
+
+.styt-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.styt-list li {
+	display: block;
+
+}
+
+.styt-list .styt-thumbnail {
+	max-width: 400px;
+}
+
+.styt-list h3.styt-title {
+	margin-bottom: 12px;
+	font-size: 21px;
+	margin-top: 30px;
+}
+
+.styt-button-loadmore {
+	margin-top: 2rem;
+    background-color: #24890d;
+    border: 0;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: .75em 1.25em;
+    text-transform: uppercase;
+    vertical-align: bottom;
+    display: inline-block;
+	min-width: 50%;
+	text-align: center;
+}

@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)https://laravel.io/forum/03-09-2014-passing-variables-to-multiple-views -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="./Passing $variables to multiple views_ _ Laravel_files/osd.js.download"></script><script src="./Passing $variables to multiple views_ _ Laravel_files/f.txt"></script><script src="./Passing $variables to multiple views_ _ Laravel_files/f(1).txt" id="google_shimpl"></script><script async="" src="./Passing $variables to multiple views_ _ Laravel_files/analytics.js.download"></script><script src="./Passing $variables to multiple views_ _ Laravel_files/config.js.download" crossorigin="" charset="utf-8"></script>
+    <script src="./Passing $variables to multiple views_ _ Laravel_files/embed.js.download" crossorigin="" charset="utf-8"></script>
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="qO5kMeIH8Y1fHysdcn2h4TzuUXssH0onZ0tiw5DM">
+
+    <title>Passing $variables to multiple views? | Laravel</title>
+
+    <!-- Scripts -->
+    <script src="./Passing $variables to multiple views_ _ Laravel_files/app.js.download" defer=""></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./Passing $variables to multiple views_ _ Laravel_files/inter.css">
+    <link rel="stylesheet" href="./Passing $variables to multiple views_ _ Laravel_files/font-awesome.min.css">
+    <link href="./Passing $variables to multiple views_ _ Laravel_files/app.css" rel="stylesheet">
+
+    <script>
+        window.Laravel = {"csrfToken":"qO5kMeIH8Y1fHysdcn2h4TzuUXssH0onZ0tiw5DM"};
+    </script>
+
+    <link rel="alternate" type="application/atom+xml" href="https://laravel.io/forum/feed" title="Laravel.io Forum RSS Feed">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.io/images/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://laravel.io/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://laravel.io/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="https://laravel.io/site.webmanifest">
+<link rel="mask-icon" href="https://laravel.io/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="theme-color" content="#ffffff">
+    <!-- Twitter sharing -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Passing $variables to multiple views? | Laravel">
+<meta name="twitter:creator" content="@laravelio">
+<!-- /Twitter sharing -->
+
+<!-- Facebook sharing -->
+<meta property="og:url" content="https://laravel.io/forum/03-09-2014-passing-variables-to-multiple-views">
+<meta property="og:title" content="Passing $variables to multiple views? | Laravel">
+<meta property="og:image" content="https://laravel.io/images/laravelio-share.png">
+<!-- /Facebook sharing -->    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-65407502-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async="" src="./Passing $variables to multiple views_ _ Laravel_files/f(2).txt"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8613969005293129",
+            enable_page_level_ads: true
+        });
+    </script>
+
+    <style>[wire\:loading] {display: none;}[wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}</style>
+<style type="text/css">/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #998;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #008080;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #900;
+  font-weight: bold;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #009926;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
+}
+
+.hljs-meta {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+</style><style type="text/css">/*===============================
+=            Choices            =
+===============================*/
+
+.choices {
+  position: relative;
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.choices:focus {
+  outline: none;
+}
+
+.choices:last-child {
+  margin-bottom: 0;
+}
+
+.choices.is-disabled .choices__inner,
+.choices.is-disabled .choices__input {
+  background-color: #eaeaea;
+  cursor: not-allowed;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
+}
+
+.choices.is-disabled .choices__item {
+  cursor: not-allowed;
+}
+
+.choices [hidden] {
+  display: none !important;
+}
+
+.choices[data-type*='select-one'] {
+  cursor: pointer;
+}
+
+.choices[data-type*='select-one'] .choices__inner {
+  padding-bottom: 7.5px;
+}
+
+.choices[data-type*='select-one'] .choices__input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #dddddd;
+  background-color: #ffffff;
+  margin: 0;
+}
+
+.choices[data-type*='select-one'] .choices__button {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMSAyMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yLjU5Mi4wNDRsMTguMzY0IDE4LjM2NC0yLjU0OCAyLjU0OEwuMDQ0IDIuNTkyeiIvPjxwYXRoIGQ9Ik0wIDE4LjM2NEwxOC4zNjQgMGwyLjU0OCAyLjU0OEwyLjU0OCAyMC45MTJ6Ii8+PC9nPjwvc3ZnPg==);
+  padding: 0;
+  background-size: 8px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -10px;
+  margin-right: 25px;
+  height: 20px;
+  width: 20px;
+  border-radius: 10em;
+  opacity: 0.5;
+}
+
+.choices[data-type*='select-one'] .choices__button:hover, .choices[data-type*='select-one'] .choices__button:focus {
+  opacity: 1;
+}
+
+.choices[data-type*='select-one'] .choices__button:focus {
+  box-shadow: 0px 0px 0px 2px #00bcd4;
+}
+
+.choices[data-type*='select-one'] .choices__item[data-value=''] .choices__button {
+  display: none;
+}
+
+.choices[data-type*='select-one']:after {
+  content: '';
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-color: #333333 transparent transparent transparent;
+  border-width: 5px;
+  position: absolute;
+  right: 11.5px;
+  top: 50%;
+  margin-top: -2.5px;
+  pointer-events: none;
+}
+
+.choices[data-type*='select-one'].is-open:after {
+  border-color: transparent transparent #333333 transparent;
+  margin-top: -7.5px;
+}
+
+.choices[data-type*='select-one'][dir='rtl']:after {
+  left: 11.5px;
+  right: auto;
+}
+
+.choices[data-type*='select-one'][dir='rtl'] .choices__button {
+  right: auto;
+  left: 0;
+  margin-left: 25px;
+  margin-right: 0;
+}
+
+.choices[data-type*='select-multiple'] .choices__inner,
+.choices[data-type*='text'] .choices__inner {
+  cursor: text;
+}
+
+.choices[data-type*='select-multiple'] .choices__button,
+.choices[data-type*='text'] .choices__button {
+  position: relative;
+  display: inline-block;
+  margin-top: 0;
+  margin-right: -4px;
+  margin-bottom: 0;
+  margin-left: 8px;
+  padding-left: 16px;
+  border-left: 1px solid #008fa1;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMSAyMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yLjU5Mi4wNDRsMTguMzY0IDE4LjM2NC0yLjU0OCAyLjU0OEwuMDQ0IDIuNTkyeiIvPjxwYXRoIGQ9Ik0wIDE4LjM2NEwxOC4zNjQgMGwyLjU0OCAyLjU0OEwyLjU0OCAyMC45MTJ6Ii8+PC9nPjwvc3ZnPg==);
+  background-size: 8px;
+  width: 8px;
+  line-height: 1;
+  opacity: 0.75;
+  border-radius: 0;
+}
+
+.choices[data-type*='select-multiple'] .choices__button:hover, .choices[data-type*='select-multiple'] .choices__button:focus,
+.choices[data-type*='text'] .choices__button:hover,
+.choices[data-type*='text'] .choices__button:focus {
+  opacity: 1;
+}
+
+.choices__inner {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  background-color: #f9f9f9;
+  padding: 7.5px 7.5px 3.75px;
+  border: 1px solid #dddddd;
+  border-radius: 2.5px;
+  font-size: 14px;
+  min-height: 44px;
+  overflow: hidden;
+}
+
+.is-focused .choices__inner,
+.is-open .choices__inner {
+  border-color: #b7b7b7;
+}
+
+.is-open .choices__inner {
+  border-radius: 2.5px 2.5px 0 0;
+}
+
+.is-flipped.is-open .choices__inner {
+  border-radius: 0 0 2.5px 2.5px;
+}
+
+.choices__list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.choices__list--single {
+  display: inline-block;
+  padding: 4px 16px 4px 4px;
+  width: 100%;
+}
+
+[dir='rtl'] .choices__list--single {
+  padding-right: 4px;
+  padding-left: 16px;
+}
+
+.choices__list--single .choices__item {
+  width: 100%;
+}
+
+.choices__list--multiple {
+  display: inline;
+}
+
+.choices__list--multiple .choices__item {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-right: 3.75px;
+  margin-bottom: 3.75px;
+  background-color: #00bcd4;
+  border: 1px solid #00a5bb;
+  color: #ffffff;
+  word-break: break-all;
+  box-sizing: border-box;
+}
+
+.choices__list--multiple .choices__item[data-deletable] {
+  padding-right: 5px;
+}
+
+[dir='rtl'] .choices__list--multiple .choices__item {
+  margin-right: 0;
+  margin-left: 3.75px;
+}
+
+.choices__list--multiple .choices__item.is-highlighted {
+  background-color: #00a5bb;
+  border: 1px solid #008fa1;
+}
+
+.is-disabled .choices__list--multiple .choices__item {
+  background-color: #aaaaaa;
+  border: 1px solid #919191;
+}
+
+.choices__list--dropdown {
+  visibility: hidden;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  top: 100%;
+  margin-top: -1px;
+  border-bottom-left-radius: 2.5px;
+  border-bottom-right-radius: 2.5px;
+  overflow: hidden;
+  word-break: break-all;
+  will-change: visibility;
+}
+
+.choices__list--dropdown.is-active {
+  visibility: visible;
+}
+
+.is-open .choices__list--dropdown {
+  border-color: #b7b7b7;
+}
+
+.is-flipped .choices__list--dropdown {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: -1px;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.choices__list--dropdown .choices__list {
+  position: relative;
+  max-height: 300px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  will-change: scroll-position;
+}
+
+.choices__list--dropdown .choices__item {
+  position: relative;
+  padding: 10px;
+  font-size: 14px;
+}
+
+[dir='rtl'] .choices__list--dropdown .choices__item {
+  text-align: right;
+}
+
+@media (min-width: 640px) {
+  .choices__list--dropdown .choices__item--selectable {
+    padding-right: 100px;
+  }
+
+  .choices__list--dropdown .choices__item--selectable:after {
+    content: attr(data-select-text);
+    font-size: 12px;
+    opacity: 0;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  [dir='rtl'] .choices__list--dropdown .choices__item--selectable {
+    text-align: right;
+    padding-left: 100px;
+    padding-right: 10px;
+  }
+
+  [dir='rtl'] .choices__list--dropdown .choices__item--selectable:after {
+    right: auto;
+    left: 10px;
+  }
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+  background-color: #f2f2f2;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted:after {
+  opacity: 0.5;
+}
+
+.choices__item {
+  cursor: default;
+}
+
+.choices__item--selectable {
+  cursor: pointer;
+}
+
+.choices__item--disabled {
+  cursor: not-allowed;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
+  opacity: 0.5;
+}
+
+.choices__heading {
+  font-weight: 600;
+  font-size: 12px;
+  padding: 10px;
+  border-bottom: 1px solid #f7f7f7;
+  color: gray;
+}
+
+.choices__button {
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.choices__button:focus {
+  outline: none;
+}
+
+.choices__input {
+  display: inline-block;
+  vertical-align: baseline;
+  background-color: #f9f9f9;
+  font-size: 14px;
+  margin-bottom: 5px;
+  border: 0;
+  border-radius: 0;
+  max-width: 100%;
+  padding: 4px 0 4px 2px;
+}
+
+.choices__input:focus {
+  outline: 0;
+}
+
+[dir='rtl'] .choices__input {
+  padding-right: 2px;
+  padding-left: 0;
+}
+
+.choices__placeholder {
+  opacity: 0.5;
+}
+
+/*=====  End of Choices  ======*/
+</style><link rel="preload" href="./Passing $variables to multiple views_ _ Laravel_files/f(3).txt" as="script"><script type="text/javascript" src="./Passing $variables to multiple views_ _ Laravel_files/f(3).txt"></script><link rel="preload" href="./Passing $variables to multiple views_ _ Laravel_files/f(4).txt" as="script"><script type="text/javascript" src="./Passing $variables to multiple views_ _ Laravel_files/f(4).txt"></script><iframe id="metomic-iframe" src="./Passing $variables to multiple views_ _ Laravel_files/saved_resource.html" title="metomic-iframe-bootstrap"></iframe></head>
+
+<body class=" font-sans bg-white" x-data="{ activeModal: null }">
+
+<section class="bg-green-primary border-t-4 border-green-darker text-white text-lg font-medium p-3">
+    <div class="wrapper text-center">
+        <a class="focus:underline focus:bg-transparent" href="https://github.com/sponsors/laravelio" target="_blank" rel="noopener">
+            <i class="fa fa-github mr-1"></i> Support the ongoing development of Laravel.io  →
+        </a>
+    </div>
+</section>
+<nav x-data="{ open: false }" class="bg-white shadow">
+    <div class="max-w-6xl mx-auto px-2 sm:px-4 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex px-2 lg:px-0">
+                <div class="flex-shrink-0 flex items-center">
+                    <a class="my-4" href="https://laravel.io/">
+                        <img class="block lg:hidden h-8 w-auto" src="./Passing $variables to multiple views_ _ Laravel_files/laravelio-icon.svg" alt="">
+                        <img class="hidden lg:block h-8 w-auto" src="./Passing $variables to multiple views_ _ Laravel_files/laravelio-logo.svg" alt="">
+                    </a>
+                </div>
+                <div class="hidden lg:ml-6 lg:flex">
+                    <a href="https://laravel.io/forum" class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out  border-green-primary focus:border-green-dark text-gray-900">
+                        Forum
+                    </a>
+                    <a href="https://paste.laravel.io/" class="ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                        Pastebin
+                    </a>
+                    <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                        <div class="ml-8 h-full flex items-center px-1 pt-1 border-b-2 border-transparent">
+                            <button @click="open = !open" class="flex text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                Chat
+
+                                <svg viewBox="0 0 20 20" class="w-5 h-5 text-gray-500" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 mt-2 w-48 rounded-md shadow-lg z-50" style="display: none;">
+                            <div class="py-1 rounded-md bg-white shadow-xs">
+                                <a href="https://discord.gg/KxwQuKb" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Discord</a>
+                                <a href="https://larachat.co/" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Larachat</a>
+                                <a href="https://webchat.freenode.net/?nick=laravelnewbie&amp;channels=%23laravel&amp;prompt=1" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">IRC</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://laravelevents.com/" class="ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                        Events
+                    </a>
+                    <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                        <div class="ml-8 h-full flex items-center px-1 pt-1 border-b-2 border-transparent">
+                            <button @click="open = !open" class="flex text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                Community
+
+                                <svg viewBox="0 0 20 20" class="w-5 h-5 text-gray-500" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 mt-2 w-48 rounded-md shadow-lg z-50" style="display: none;">
+                            <div class="py-1 rounded-md bg-white shadow-xs">
+                                <a href="https://github.com/laravelio" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Github</a>
+                                <a href="https://larachat.co/" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Twitter</a>
+                                <div class="border-t border-gray-100"></div>
+                                <a href="https://laravel.com/" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Laravel</a>
+                                <a href="https://laracasts.com/" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Laracasts</a>
+                                <a href="https://laravel-news.com/" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Laravel News</a>
+                                <a href="https://www.laravelpodcast.com/" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Podcast</a>
+                                <a href="https://ecosystem.laravel.io/" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Ecosystem</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
+                <div class="max-w-lg w-full lg:max-w-xs" x-data="{ results: [] }">
+    <label for="search" class="sr-only">Search</label>
+    <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+            </svg>
+        </div>
+        <input @click.away="results = []" @keyup="search(event).then(function({ hits }) { results = hits; })" type="text" name="search" id="search" class="nav-search block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm transition duration-150 ease-in-out" placeholder="Search for threads...">
+        <template x-if="results.length &gt; 0"></template>
+    </div>
+</div>            </div>
+            <div class="flex items-center lg:hidden">
+                <button @click="open = !open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                        <path :class="{&#39;hidden&#39;: open, &#39;inline-flex&#39;: !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path :class="{&#39;hidden&#39;: !open, &#39;inline-flex&#39;: open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden lg:ml-4 lg:flex lg:items-center">
+                                    <a href="https://laravel.io/login" class=" border-transparent text-gray-500 hover:text-gray-700 hover:border-green-primary inline-flex lg:h-full items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out">
+                        Login
+                    </a>
+                    <a href="https://laravel.io/register" class=" border-transparent text-gray-500 hover:text-gray-700 hover:border-green-primary ml-8 inline-flex lg:h-full items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out">
+                        Register
+                    </a>
+                            </div>
+        </div>
+    </div>
+    <div :class="{&#39;block&#39;: open, &#39;hidden&#39;: !open}" class="hidden lg:hidden">
+        <div class="pt-2 pb-3">
+            <a href="https://laravel.io/forum" class=" border-green-primary focus:border-green-dark text-gray-900 block pl-3 pr-4 py-2 border-l-4 text-base font-medium bg-indigo-50 focus:outline-none transition duration-150 ease-in-out">Forum</a>
+            <a href="https://paste.laravel.io/" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Pastebin</a>
+
+            <div class="mt-1">
+                <div class="pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 transition duration-150 ease-in-out">
+                    Chat
+                </div>
+
+                <div>
+                    <a href="https://discord.gg/KxwQuKb" class="pl-6 block pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Discord</a>
+                    <a href="https://larachat.co/" class="pl-6 block pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Larachat</a>
+                    <a href="https://webchat.freenode.net/?nick=laravelnewbie&amp;channels=%23laravel&amp;prompt=1" class="pl-6 block pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">IRC</a>
+                </div>
+            </div>
+
+            <a href="https://laravelevents.com/" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Events</a>
+
+            <div class="mt-1">
+                <div class="pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 transition duration-150 ease-in-out">
+                    Community
+                </div>
+
+                <div>
+                    <a href="https://github.com/laravelio" class="pl-6 block pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Github</a>
+                    <a href="https://larachat.co/" class="pl-6 block pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Twitter</a>
+                    <a href="https://laravel.com/" class="pl-6 block pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Laravel</a>
+                    <a href="https://laracasts.com/" class="pl-6 block pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Laracasts</a>
+                    <a href="https://laravel-news.com/" class="pl-6 block pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Laravel News</a>
+                    <a href="https://www.laravelpodcast.com/" class="pl-6 block pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Podcast</a>
+                    <a href="https://ecosystem.laravel.io/" class="pl-6 block pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Ecosystem</a>
+                </div>
+            </div>
+        </div>
+        <div class="pt-4 pb-3 border-t border-gray-200">
+                            <div class="mt-3">
+                    <a href="https://laravel.io/login" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 focus:outline-none focus:text-gray-800 focus:bg-gray-100 transition duration-150 ease-in-out">
+                        Login
+                    </a>
+                    <a href="https://laravel.io/register" class="mt-1 block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 focus:outline-none focus:text-gray-800 focus:bg-gray-100 transition duration-150 ease-in-out">
+                        Register
+                    </a>
+                </div>
+                    </div>
+    </div>
+</nav>
+
+    <div style="height: auto !important;">
+                
+        
+            <div class="bg-white border-b">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <h1 class="text-xl py-4 text-gray-900">
+                <a href="https://laravel.io/forum">Forum</a>
+                &gt; Passing $variables to multiple views?
+            </h1>
+        </div>
+    </div>
+    <div class="container mx-auto px-4 pt-4" style="height: auto !important;">
+        <div class="flex flex-wrap" style="height: auto !important;">
+            <div class="w-full md:w-3/4 md:pr-3">
+                <div class="reply bg-white border rounded">
+                    <div class="flex flex-col md:flex-row md:items-center text-sm p-4 border-b">
+                        <div class="flex flex-col flex-wrap flex-1 justify-between md:flex-row md:items-center mb-4 md:mb-0 md:mr-2">
+                            <div class="flex">
+                                <div class="thread-info-avatar">
+    <a href="https://laravel.io/user/reached">
+        <img class="img-circle w-6 rounded-full mr-3" src="./Passing $variables to multiple views_ _ Laravel_files/763aeb688d323ecdddf081e7fdea113d.jpeg">
+    </a>
+</div>
+
+                                <div class="mr-6 mb-4 md:mb-0 text-gray-700">
+                                    <a href="https://laravel.io/user/reached" class="text-green-darker mr-2">
+                                        Reached
+                                    </a> posted 6 years ago
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col items-start sm:flex-row sm:items-center">
+                                <div class="mr-2">
+                                    <div class="thread-info-tags">
+                    <a href="https://laravel.io/forum/tags/views">
+                <span class="bg-gray-300 text-gray-700 rounded px-2 py-1">Views</span>
+            </a>
+            </div>
+                                </div>
+                                <a class="label label-primary text-center mt-4 sm:mt-0" href="https://laravel.io/forum/03-09-2014-passing-variables-to-multiple-views#3031">
+        <i class="fa fa-check mr-2"></i>
+        View solution
+    </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="forum-content" x-data="{}" x-init="function () { highlightCode($el); }" x-html="&quot;&lt;p&gt;Hey guys,\nAnother newb question from me here.\nI have these articles that I currently fetch from my database into my view, which works perfectly fine. However now I want to show this same data on my \/home page, is there any smart way to go about this? I looked into view composers, but i&#39;m not sure that&#39;s what i&#39;m really looking for?&lt;\/p&gt;\n&lt;pre&gt;&lt;code&gt;&amp;lt;?php\n\nclass BuyController extends BaseController {\n\npublic function articles() {\n\n\t$articles = Article::all();\n\n\treturn View::make(&#39;pages.buy&#39;, array(&#39;articles&#39; =&amp;gt; $articles));\n}\n\n}\n&lt;\/code&gt;&lt;\/pre&gt;\n&lt;p&gt;And my routes.php:&lt;\/p&gt;\n&lt;pre&gt;&lt;code&gt;Route::get(&#39;buy&#39;, &#39;BuyController@articles&#39;);\n&lt;\/code&gt;&lt;\/pre&gt;\n&lt;p&gt;The above works fine as I mentioned, but how would i go about passing the same variable to my &#39;home&#39; view (or any other view for that matter)?&lt;\/p&gt;\n&lt;p&gt;Thanks in advance! :)&lt;\/p&gt;\n&quot;"><p>Hey guys,
+Another newb question from me here.
+I have these articles that I currently fetch from my database into my view, which works perfectly fine. However now I want to show this same data on my /home page, is there any smart way to go about this? I looked into view composers, but i'm not sure that's what i'm really looking for?</p>
+<pre><code class="hljs xml"><span class="php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BuyController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseController</span> </span>{
+
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">articles</span><span class="hljs-params">()</span> </span>{
+
+	$articles = Article::all();
+
+	<span class="hljs-keyword">return</span> View::make(<span class="hljs-string">'pages.buy'</span>, <span class="hljs-keyword">array</span>(<span class="hljs-string">'articles'</span> =&gt; $articles));
+}
+
+}
+</span></code></pre>
+<p>And my routes.php:</p>
+<pre><code class="hljs routeros">Route::<span class="hljs-builtin-name">get</span>(<span class="hljs-string">'buy'</span>, <span class="hljs-string">'BuyController@articles'</span>);
+</code></pre>
+<p>The above works fine as I mentioned, but how would i go about passing the same variable to my 'home' view (or any other view for that matter)?</p>
+<p>Thanks in advance! :)</p>
+</div>
+                    </div>
+                    <div class="border-t">
+                        <div wire:id="riUHepiNReGCUlGcpxK1" class="thread-info-likes">
+            <div class="text-gray-600 px-4 py-2 border-r inline-block">
+            <span class="text-2xl mr-1">👍</span>
+            0
+        </div>
+    </div>
+                    </div>
+                </div>
+
+                                    <div class="reply mt-8 bg-white rounded border-2 border-green-primary" id="3031">
+                        
+                                                    <div class="bg-green-primary text-white uppercase px-4 py-2 opacity-75">
+                                Solution
+                            </div>
+                        
+                        <div>
+                            <div class="flex flex-col md:flex-row md:items-center text-sm p-4 border-b">
+                                <div class="flex flex-wrap mb-4 md:mb-0 justify-between w-full items-center">
+                                    <div class="flex">
+                                        <div class="thread-info-avatar">
+    <a href="https://laravel.io/user/citricsquid">
+        <img class="img-circle w-6 rounded-full mr-3" src="./Passing $variables to multiple views_ _ Laravel_files/bc859e68ded25d56dee364c5a57c4a4d">
+    </a>
+</div>
+
+                                        <div class="mr-6 mb-4 md:mb-0 text-gray-700">
+                                            <a href="https://laravel.io/user/citricsquid" class="text-green-darker">
+                                                citricsquid
+                                            </a> replied
+                                            6 years ago
+                                        </div>
+                                    </div>
+                                    <div class="flex reply-options">
+
+                                        
+                                                                            </div>
+                                </div>              
+                            </div>
+                            <div class="p-4">
+                                <div class="forum-content" x-data="{}" x-init="function () { highlightCode($el); }" x-html="&quot;&lt;p&gt;A view composer is exactly what you&#39;re looking for. A view composer allows you to tell your application do x when view y is rendered. For example &lt;code&gt;when pages.buy is rendered anywhere in my application attach $articles&lt;\/code&gt;.&lt;\/p&gt;\n&lt;p&gt;Let&#39;s say that you have a view that lists all of your articles and this view is included in various other views, that view is called &amp;quot;widgets.articles.recent&amp;quot;.&lt;\/p&gt;\n&lt;pre&gt;&lt;code&gt;View::composer(&#39;widgets.articles.recent&#39;, function ($view)\n{\n\t$articles = Article::all();\n\n\t$view-&amp;gt;with(&#39;all_articles&#39;, $articles);\n});\n\n&lt;\/code&gt;&lt;\/pre&gt;\n&lt;p&gt;Now whenever Laravel detects that you have requested the &lt;code&gt;widgets.articles.recent&lt;\/code&gt; view it will look up all of the articles and attach them to the view as &lt;code&gt;$all_articles&lt;\/code&gt;, within &lt;code&gt;widgets.articles.recent&lt;\/code&gt; you can iterate through your articles without the need for the controller to know anything about the articles.&lt;\/p&gt;\n&lt;p&gt;You can place your view composers anywhere in your application, for example in &lt;code&gt;start.php&lt;\/code&gt; or even &lt;code&gt;routes.php&lt;\/code&gt; if you&#39;re so inclined. &lt;code&gt;app\/composers&lt;\/code&gt; is a good place, eg: &lt;code&gt;app\/composers\/article.php&lt;\/code&gt;. The full code might look like this:&lt;\/p&gt;\n&lt;p&gt;&lt;code&gt;app\/composers\/article.php:&lt;\/code&gt;&lt;\/p&gt;\n&lt;pre&gt;&lt;code&gt;View::composer(&#39;widget.articles.recent&#39;, function ($view)\n{\n\t$articles = Article::all();\n\t\n\t$view-&amp;gt;with(&#39;all_articles&#39;, $articles);\n});\n\n&lt;\/code&gt;&lt;\/pre&gt;\n&lt;p&gt;&lt;code&gt;app\/views\/widgets\/articles\/recent.blade.php:&lt;\/code&gt;&lt;\/p&gt;\n&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;articles&amp;quot;&amp;gt;\n    &amp;lt;ul&amp;gt;\n        @foreach ($articles as $article)\n        &amp;lt;li&amp;gt;{{ $article-&amp;gt;title }}&amp;lt;\/li&amp;gt;\n        @endforeach\n    &amp;lt;\/lu&amp;gt;\n&amp;lt;\/div&amp;gt;\n&lt;\/code&gt;&lt;\/pre&gt;\n&lt;p&gt;&lt;code&gt;app\/views\/home\/index.blade.php&lt;\/code&gt;&lt;\/p&gt;\n&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&amp;quot;sidebar&amp;quot;&amp;gt;\n    @include(&#39;widgets.articles.recent&#39;)\n&amp;lt;\/div&amp;gt;\n&lt;\/code&gt;&lt;\/pre&gt;\n&lt;p&gt;&lt;code&gt;app\/views\/buy\/index.blade.php&lt;\/code&gt;&lt;\/p&gt;\n&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&amp;quot;sidebar&amp;quot;&amp;gt;\n    @include(&#39;widgets.articles.recent&#39;)\n&amp;lt;\/div&amp;gt;\n&lt;\/code&gt;&lt;\/pre&gt;\n&lt;p&gt;http:\/\/laravel.com\/docs\/responses#view-composers&lt;\/p&gt;\n&quot;"><p>A view composer is exactly what you're looking for. A view composer allows you to tell your application do x when view y is rendered. For example <code>when pages.buy is rendered anywhere in my application attach $articles</code>.</p>
+<p>Let's say that you have a view that lists all of your articles and this view is included in various other views, that view is called "widgets.articles.recent".</p>
+<pre><code class="hljs php">View::composer(<span class="hljs-string">'widgets.articles.recent'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($view)</span>
+</span>{
+	$articles = Article::all();
+
+	$view-&gt;with(<span class="hljs-string">'all_articles'</span>, $articles);
+});
+
+</code></pre>
+<p>Now whenever Laravel detects that you have requested the <code>widgets.articles.recent</code> view it will look up all of the articles and attach them to the view as <code>$all_articles</code>, within <code>widgets.articles.recent</code> you can iterate through your articles without the need for the controller to know anything about the articles.</p>
+<p>You can place your view composers anywhere in your application, for example in <code>start.php</code> or even <code>routes.php</code> if you're so inclined. <code>app/composers</code> is a good place, eg: <code>app/composers/article.php</code>. The full code might look like this:</p>
+<p><code>app/composers/article.php:</code></p>
+<pre><code class="hljs php">View::composer(<span class="hljs-string">'widget.articles.recent'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($view)</span>
+</span>{
+	$articles = Article::all();
+	
+	$view-&gt;with(<span class="hljs-string">'all_articles'</span>, $articles);
+});
+
+</code></pre>
+<p><code>app/views/widgets/articles/recent.blade.php:</code></p>
+<pre><code class="hljs angelscript">&lt;div <span class="hljs-keyword">class</span>="<span class="hljs-symbol">articles</span>"&gt;
+    &lt;<span class="hljs-symbol">ul</span>&gt;
+        @<span class="hljs-symbol">foreach</span> ($<span class="hljs-symbol">articles</span> <span class="hljs-symbol">as</span> $<span class="hljs-symbol">article</span>)
+        &lt;<span class="hljs-symbol">li</span>&gt;{{ $article-&gt;title }}&lt;/li&gt;
+        @endforeach
+    &lt;/lu&gt;
+&lt;/div&gt;
+</code></pre>
+<p><code>app/views/home/index.blade.php</code></p>
+<pre><code class="hljs gml">&lt;<span class="hljs-keyword">div</span> <span class="hljs-symbol">id</span>=<span class="hljs-string">"sidebar"</span>&gt;
+    @include(<span class="hljs-string">'widgets.articles.recent'</span>)
+&lt;/<span class="hljs-keyword">div</span>&gt;
+</code></pre>
+<p><code>app/views/buy/index.blade.php</code></p>
+<pre><code class="hljs gml">&lt;<span class="hljs-keyword">div</span> <span class="hljs-symbol">id</span>=<span class="hljs-string">"sidebar"</span>&gt;
+    @include(<span class="hljs-string">'widgets.articles.recent'</span>)
+&lt;/<span class="hljs-keyword">div</span>&gt;
+</code></pre>
+<p>http://laravel.com/docs/responses#view-composers</p>
+</div>
+                            </div>                            
+                            <div class="border-t">
+                                <div wire:id="L8rMGfQkUlq3QW1PGxSP" class="thread-info-likes">
+            <div class="text-gray-600 px-4 py-2 border-r inline-block">
+            <span class="text-2xl mr-1">👍</span>
+            0
+        </div>
+    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" x-show="activeModal === &#39;delete-reply-3031&#39;" style="display: none;">
+    <div class="modal-content">
+        <form action="https://laravel.io/replies/3031" method="POST">
+            <input type="hidden" name="_token" value="qO5kMeIH8Y1fHysdcn2h4TzuUXssH0onZ0tiw5DM">            <input type="hidden" name="_method" value="DELETE">
+            <div class="flex flex-col justify-between h-full">
+                <div class="overflow-auto">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-hidden="true" @click.prevent="activeModal = false">×</button>
+                        <h4 class="modal-title">Delete Reply</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this reply? This cannot be undone.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="text-gray-600 mr-4" @click.prevent="activeModal = false">Cancel</button>
+                    <button type="submit" class="button button-danger">Delete Reply</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+                                    <div class="reply mt-8 bg-white rounded border" id="3032">
+                        
+                        
+                        <div>
+                            <div class="flex flex-col md:flex-row md:items-center text-sm p-4 border-b">
+                                <div class="flex flex-wrap mb-4 md:mb-0 justify-between w-full items-center">
+                                    <div class="flex">
+                                        <div class="thread-info-avatar">
+    <a href="https://laravel.io/user/reached">
+        <img class="img-circle w-6 rounded-full mr-3" src="./Passing $variables to multiple views_ _ Laravel_files/763aeb688d323ecdddf081e7fdea113d.jpeg">
+    </a>
+</div>
+
+                                        <div class="mr-6 mb-4 md:mb-0 text-gray-700">
+                                            <a href="https://laravel.io/user/reached" class="text-green-darker">
+                                                Reached
+                                            </a> replied
+                                            6 years ago
+                                        </div>
+                                    </div>
+                                    <div class="flex reply-options">
+
+                                        
+                                                                            </div>
+                                </div>              
+                            </div>
+                            <div class="p-4">
+                                <div class="forum-content" x-data="{}" x-init="function () { highlightCode($el); }" x-html="&quot;&lt;p&gt;This might be a stupid question, but you said that:\n&lt;em&gt;Let&#39;s say that you have a view that lists all of your articles and this view is included in various other views, that view is called &amp;quot;widget.articles.recent&amp;quot;.&lt;\/em&gt;&lt;\/p&gt;\n&lt;p&gt;I&#39;m not quite sure I understand what you mean. I created the composer file and called it &lt;em&gt;articles.php&lt;\/em&gt;, then what file should it route to for it to work properly? I tried with\nView::composer(&#39;pages.home&#39;,\nHowever, that does not work, and I think it&#39;s because I don&#39;t understand how the views are connected.&lt;\/p&gt;\n&lt;p&gt;This is what currently loads my articles inside my views:&lt;\/p&gt;\n&lt;pre&gt;&lt;code&gt;@foreach ($articles as $article)\n\t\t        &amp;lt;div class=&amp;quot;column third&amp;quot;&amp;gt;\n\t\t\t        &amp;lt;div class=&amp;quot;article-item&amp;quot;&amp;gt;\n\t\t\t\t       \t&amp;lt;span class=&amp;quot;article-title&amp;quot;&amp;gt;&amp;lt;h2&amp;gt;{{ $article-&amp;gt;title }}&amp;lt;\/h2&amp;gt;&amp;lt;\/span&amp;gt;\n\t\t\t\t        &amp;lt;span class=&amp;quot;short-description&amp;quot;&amp;gt;&amp;lt;p&amp;gt;{{ $article-&amp;gt;description }}&amp;lt;\/p&amp;gt;&amp;lt;\/span&amp;gt;\n\t\t\t\t        &amp;lt;p&amp;gt;{{ $article-&amp;gt;price }}&amp;lt;\/p&amp;gt;\n\t\t\t\t    &amp;lt;\/div&amp;gt;\n\t\t        &amp;lt;\/div&amp;gt;\n\t    @endforeach\n&lt;\/code&gt;&lt;\/pre&gt;\n&lt;p&gt;Thanks so far!&lt;\/p&gt;\n&quot;"><p>This might be a stupid question, but you said that:
+<em>Let's say that you have a view that lists all of your articles and this view is included in various other views, that view is called "widget.articles.recent".</em></p>
+<p>I'm not quite sure I understand what you mean. I created the composer file and called it <em>articles.php</em>, then what file should it route to for it to work properly? I tried with
+View::composer('pages.home',
+However, that does not work, and I think it's because I don't understand how the views are connected.</p>
+<p>This is what currently loads my articles inside my views:</p>
+<pre><code class="hljs xquery">@foreach (<span class="hljs-variable">$articles</span> <span class="hljs-keyword">as</span> <span class="hljs-variable">$article</span>)
+		        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"column third"</span>&gt;</span>
+			        </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"article-item"</span>&gt;</span>
+				       	</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"article-title"</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span><span class="xquery">{{ <span class="hljs-variable">$article-</span>&gt;title }</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="xml">
+				        </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"short-description"</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span><span class="xquery">{{ <span class="hljs-variable">$article-</span>&gt;description }</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="xml">
+				        </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span><span class="xquery">{{ <span class="hljs-variable">$article-</span>&gt;price }</span><span class="xml">}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><span class="xml">
+				    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><span class="xml">
+		        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+	    @endforeach
+</code></pre>
+<p>Thanks so far!</p>
+</div>
+                            </div>                            
+                            <div class="border-t">
+                                <div wire:id="S9PZO5QkgMxP6tKDnOdP" class="thread-info-likes">
+            <div class="text-gray-600 px-4 py-2 border-r inline-block">
+            <span class="text-2xl mr-1">👍</span>
+            0
+        </div>
+    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" x-show="activeModal === &#39;delete-reply-3032&#39;" style="display: none;">
+    <div class="modal-content">
+        <form action="https://laravel.io/replies/3032" method="POST">
+            <input type="hidden" name="_token" value="qO5kMeIH8Y1fHysdcn2h4TzuUXssH0onZ0tiw5DM">            <input type="hidden" name="_method" value="DELETE">
+            <div class="flex flex-col justify-between h-full">
+                <div class="overflow-auto">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-hidden="true" @click.prevent="activeModal = false">×</button>
+                        <h4 class="modal-title">Delete Reply</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this reply? This cannot be undone.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="text-gray-600 mr-4" @click.prevent="activeModal = false">Cancel</button>
+                    <button type="submit" class="button button-danger">Delete Reply</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+                                    <div class="reply mt-8 bg-white rounded border" id="3033">
+                        
+                        
+                        <div>
+                            <div class="flex flex-col md:flex-row md:items-center text-sm p-4 border-b">
+                                <div class="flex flex-wrap mb-4 md:mb-0 justify-between w-full items-center">
+                                    <div class="flex">
+                                        <div class="thread-info-avatar">
+    <a href="https://laravel.io/user/reached">
+        <img class="img-circle w-6 rounded-full mr-3" src="./Passing $variables to multiple views_ _ Laravel_files/763aeb688d323ecdddf081e7fdea113d.jpeg">
+    </a>
+</div>
+
+                                        <div class="mr-6 mb-4 md:mb-0 text-gray-700">
+                                            <a href="https://laravel.io/user/reached" class="text-green-darker">
+                                                Reached
+                                            </a> replied
+                                            6 years ago
+                                        </div>
+                                    </div>
+                                    <div class="flex reply-options">
+
+                                        
+                                                                            </div>
+                                </div>              
+                            </div>
+                            <div class="p-4">
+                                <div class="forum-content" x-data="{}" x-init="function () { highlightCode($el); }" x-html="&quot;&lt;p&gt;Ohh, I didnt see that you edited your answer! Now I definitely know how to do this! Thank you so much citrics, you are a huge help! :)&lt;\/p&gt;\n&quot;"><p>Ohh, I didnt see that you edited your answer! Now I definitely know how to do this! Thank you so much citrics, you are a huge help! :)</p>
+</div>
+                            </div>                            
+                            <div class="border-t">
+                                <div wire:id="ifYmk4C8ViK3ErudnNmY" class="thread-info-likes">
+            <div class="text-gray-600 px-4 py-2 border-r inline-block">
+            <span class="text-2xl mr-1">👍</span>
+            0
+        </div>
+    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" x-show="activeModal === &#39;delete-reply-3033&#39;" style="display: none;">
+    <div class="modal-content">
+        <form action="https://laravel.io/replies/3033" method="POST">
+            <input type="hidden" name="_token" value="qO5kMeIH8Y1fHysdcn2h4TzuUXssH0onZ0tiw5DM">            <input type="hidden" name="_method" value="DELETE">
+            <div class="flex flex-col justify-between h-full">
+                <div class="overflow-auto">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-hidden="true" @click.prevent="activeModal = false">×</button>
+                        <h4 class="modal-title">Delete Reply</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this reply? This cannot be undone.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="text-gray-600 mr-4" @click.prevent="activeModal = false">Cancel</button>
+                    <button type="submit" class="button button-danger">Delete Reply</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+                                    <div class="reply mt-8 bg-white rounded border" id="3037">
+                        
+                        
+                        <div>
+                            <div class="flex flex-col md:flex-row md:items-center text-sm p-4 border-b">
+                                <div class="flex flex-wrap mb-4 md:mb-0 justify-between w-full items-center">
+                                    <div class="flex">
+                                        <div class="thread-info-avatar">
+    <a href="https://laravel.io/user/reached">
+        <img class="img-circle w-6 rounded-full mr-3" src="./Passing $variables to multiple views_ _ Laravel_files/763aeb688d323ecdddf081e7fdea113d.jpeg">
+    </a>
+</div>
+
+                                        <div class="mr-6 mb-4 md:mb-0 text-gray-700">
+                                            <a href="https://laravel.io/user/reached" class="text-green-darker">
+                                                Reached
+                                            </a> replied
+                                            6 years ago
+                                        </div>
+                                    </div>
+                                    <div class="flex reply-options">
+
+                                        
+                                                                            </div>
+                                </div>              
+                            </div>
+                            <div class="p-4">
+                                <div class="forum-content" x-data="{}" x-init="function () { highlightCode($el); }" x-html="&quot;&lt;p&gt;It doesn&#39;t seem to work.\nI created a file called articles.php and placed it inside app\/composers. I then created a file called articles.blade.php and placed it inside a folder called widgets.&lt;\/p&gt;\n&lt;p&gt;I added the following code to my articles.php file:&lt;\/p&gt;\n&lt;pre&gt;&lt;code&gt;&amp;lt;?php\n\nView::composer(&#39;widgets.articles&#39;, function ($view)\n{\n$articles = Article::all();\n\n$view-&amp;gt;with(&#39;all_articles&#39;, $articles);\n});\n&lt;\/code&gt;&lt;\/pre&gt;\n&lt;p&gt;In my articles.blade.php I have:&lt;\/p&gt;\n&lt;pre&gt;&lt;code&gt;@foreach ($articles as $article)\n{{ $article-&amp;gt;title }}\n{{ $article-&amp;gt;description }}\n{{ $article-&amp;gt;price }}\n@endforeach\n&lt;\/code&gt;&lt;\/pre&gt;\n&lt;p&gt;And I then include this in my views:&lt;\/p&gt;\n&lt;pre&gt;&lt;code&gt;@include(&#39;widgets.articles&#39;)\n&lt;\/code&gt;&lt;\/pre&gt;\n&lt;p&gt;However I still get a Undefined variable: articles.\nDo I miss something here?&lt;\/p&gt;\n&quot;"><p>It doesn't seem to work.
+I created a file called articles.php and placed it inside app/composers. I then created a file called articles.blade.php and placed it inside a folder called widgets.</p>
+<p>I added the following code to my articles.php file:</p>
+<pre><code class="hljs xml"><span class="php"><span class="hljs-meta">&lt;?php</span>
+
+View::composer(<span class="hljs-string">'widgets.articles'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($view)</span>
+</span>{
+$articles = Article::all();
+
+$view-&gt;with(<span class="hljs-string">'all_articles'</span>, $articles);
+});
+</span></code></pre>
+<p>In my articles.blade.php I have:</p>
+<pre><code class="hljs php">@<span class="hljs-keyword">foreach</span> ($articles <span class="hljs-keyword">as</span> $article)
+{{ $article-&gt;title }}
+{{ $article-&gt;description }}
+{{ $article-&gt;price }}
+@<span class="hljs-keyword">endforeach</span>
+</code></pre>
+<p>And I then include this in my views:</p>
+<pre><code class="hljs kotlin"><span class="hljs-meta">@include(<span class="hljs-meta-string">'widgets.articles'</span>)</span>
+</code></pre>
+<p>However I still get a Undefined variable: articles.
+Do I miss something here?</p>
+</div>
+                            </div>                            
+                            <div class="border-t">
+                                <div wire:id="QiA7Xar8mqFAJPN6gBGS" class="thread-info-likes">
+            <div class="text-gray-600 px-4 py-2 border-r inline-block">
+            <span class="text-2xl mr-1">👍</span>
+            0
+        </div>
+    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" x-show="activeModal === &#39;delete-reply-3037&#39;" style="display: none;">
+    <div class="modal-content">
+        <form action="https://laravel.io/replies/3037" method="POST">
+            <input type="hidden" name="_token" value="qO5kMeIH8Y1fHysdcn2h4TzuUXssH0onZ0tiw5DM">            <input type="hidden" name="_method" value="DELETE">
+            <div class="flex flex-col justify-between h-full">
+                <div class="overflow-auto">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-hidden="true" @click.prevent="activeModal = false">×</button>
+                        <h4 class="modal-title">Delete Reply</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this reply? This cannot be undone.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="text-gray-600 mr-4" @click.prevent="activeModal = false">Cancel</button>
+                    <button type="submit" class="button button-danger">Delete Reply</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+                                    <div class="reply mt-8 bg-white rounded border" id="3039">
+                        
+                        
+                        <div>
+                            <div class="flex flex-col md:flex-row md:items-center text-sm p-4 border-b">
+                                <div class="flex flex-wrap mb-4 md:mb-0 justify-between w-full items-center">
+                                    <div class="flex">
+                                        <div class="thread-info-avatar">
+    <a href="https://laravel.io/user/citricsquid">
+        <img class="img-circle w-6 rounded-full mr-3" src="./Passing $variables to multiple views_ _ Laravel_files/bc859e68ded25d56dee364c5a57c4a4d">
+    </a>
+</div>
+
+                                        <div class="mr-6 mb-4 md:mb-0 text-gray-700">
+                                            <a href="https://laravel.io/user/citricsquid" class="text-green-darker">
+                                                citricsquid
+                                            </a> replied
+                                            6 years ago
+                                        </div>
+                                    </div>
+                                    <div class="flex reply-options">
+
+                                        
+                                                                            </div>
+                                </div>              
+                            </div>
+                            <div class="p-4">
+                                <div class="forum-content" x-data="{}" x-init="function () { highlightCode($el); }" x-html="&quot;&lt;p&gt;Sorry my mistake, I forgot to include the final step: you need to register the view composers with your application. To do this you can simply include the file directly into your &lt;code&gt;start\/global.php&lt;\/code&gt; file, at the very bottom add:&lt;\/p&gt;\n&lt;p&gt;&lt;code&gt;require app_path().&#39;\/composers\/articles.php&#39;;&lt;\/code&gt;&lt;\/p&gt;\n&quot;"><p>Sorry my mistake, I forgot to include the final step: you need to register the view composers with your application. To do this you can simply include the file directly into your <code>start/global.php</code> file, at the very bottom add:</p>
+<p><code>require app_path().'/composers/articles.php';</code></p>
+</div>
+                            </div>                            
+                            <div class="border-t">
+                                <div wire:id="IJa3CKcRXx9i6FshGVBJ" class="thread-info-likes">
+            <div class="text-gray-600 px-4 py-2 border-r inline-block">
+            <span class="text-2xl mr-1">👍</span>
+            0
+        </div>
+    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" x-show="activeModal === &#39;delete-reply-3039&#39;" style="display: none;">
+    <div class="modal-content">
+        <form action="https://laravel.io/replies/3039" method="POST">
+            <input type="hidden" name="_token" value="qO5kMeIH8Y1fHysdcn2h4TzuUXssH0onZ0tiw5DM">            <input type="hidden" name="_method" value="DELETE">
+            <div class="flex flex-col justify-between h-full">
+                <div class="overflow-auto">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-hidden="true" @click.prevent="activeModal = false">×</button>
+                        <h4 class="modal-title">Delete Reply</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this reply? This cannot be undone.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="text-gray-600 mr-4" @click.prevent="activeModal = false">Cancel</button>
+                    <button type="submit" class="button button-danger">Delete Reply</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+                                    <div class="reply mt-8 bg-white rounded border" id="3771">
+                        
+                        
+                        <div>
+                            <div class="flex flex-col md:flex-row md:items-center text-sm p-4 border-b">
+                                <div class="flex flex-wrap mb-4 md:mb-0 justify-between w-full items-center">
+                                    <div class="flex">
+                                        <div class="thread-info-avatar">
+    <a href="https://laravel.io/user/deepu786">
+        <img class="img-circle w-6 rounded-full mr-3" src="./Passing $variables to multiple views_ _ Laravel_files/e79fab18045ec16e7f4957cfeee534db">
+    </a>
+</div>
+
+                                        <div class="mr-6 mb-4 md:mb-0 text-gray-700">
+                                            <a href="https://laravel.io/user/deepu786" class="text-green-darker">
+                                                deepu786
+                                            </a> replied
+                                            6 years ago
+                                        </div>
+                                    </div>
+                                    <div class="flex reply-options">
+
+                                        
+                                                                            </div>
+                                </div>              
+                            </div>
+                            <div class="p-4">
+                                <div class="forum-content" x-data="{}" x-init="function () { highlightCode($el); }" x-html="&quot;&lt;p&gt;I tried all these methods you wrote above ,but still i get message:&#39;Undefined variable : data &#39; in my home.blade.php ,\nhow to solve these problem ?&lt;\/p&gt;\n&quot;"><p>I tried all these methods you wrote above ,but still i get message:'Undefined variable : data ' in my home.blade.php ,
+how to solve these problem ?</p>
+</div>
+                            </div>                            
+                            <div class="border-t">
+                                <div wire:id="Zir74Wbxoz1m1ewxZq5q" class="thread-info-likes">
+            <div class="text-gray-600 px-4 py-2 border-r inline-block">
+            <span class="text-2xl mr-1">👍</span>
+            0
+        </div>
+    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" x-show="activeModal === &#39;delete-reply-3771&#39;" style="display: none;">
+    <div class="modal-content">
+        <form action="https://laravel.io/replies/3771" method="POST">
+            <input type="hidden" name="_token" value="qO5kMeIH8Y1fHysdcn2h4TzuUXssH0onZ0tiw5DM">            <input type="hidden" name="_method" value="DELETE">
+            <div class="flex flex-col justify-between h-full">
+                <div class="overflow-auto">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-hidden="true" @click.prevent="activeModal = false">×</button>
+                        <h4 class="modal-title">Delete Reply</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this reply? This cannot be undone.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="text-gray-600 mr-4" @click.prevent="activeModal = false">Cancel</button>
+                    <button type="submit" class="button button-danger">Delete Reply</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+                                    <div class="reply mt-8 bg-white rounded border" id="3781">
+                        
+                        
+                        <div>
+                            <div class="flex flex-col md:flex-row md:items-center text-sm p-4 border-b">
+                                <div class="flex flex-wrap mb-4 md:mb-0 justify-between w-full items-center">
+                                    <div class="flex">
+                                        <div class="thread-info-avatar">
+    <a href="https://laravel.io/user/mgsmus">
+        <img class="img-circle w-6 rounded-full mr-3" src="./Passing $variables to multiple views_ _ Laravel_files/5212bdbd89f949f4072e13e12ff719ba">
+    </a>
+</div>
+
+                                        <div class="mr-6 mb-4 md:mb-0 text-gray-700">
+                                            <a href="https://laravel.io/user/mgsmus" class="text-green-darker">
+                                                mgsmus
+                                            </a> replied
+                                            6 years ago
+                                        </div>
+                                    </div>
+                                    <div class="flex reply-options">
+
+                                        
+                                                                            </div>
+                                </div>              
+                            </div>
+                            <div class="p-4">
+                                <div class="forum-content" x-data="{}" x-init="function () { highlightCode($el); }" x-html="&quot;&lt;p&gt;First paramater is path of file. If your template file is app\/views\/pages\/index.blade.php, it should be pages.index. Also you can use wildcard to share data with all files under pages folder. Use pages.*&lt;\/p&gt;\n&quot;"><p>First paramater is path of file. If your template file is app/views/pages/index.blade.php, it should be pages.index. Also you can use wildcard to share data with all files under pages folder. Use pages.*</p>
+</div>
+                            </div>                            
+                            <div class="border-t">
+                                <div wire:id="SP2r7aW4sRd36k3K4wCg" class="thread-info-likes">
+            <div class="text-gray-600 px-4 py-2 border-r inline-block">
+            <span class="text-2xl mr-1">👍</span>
+            0
+        </div>
+    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" x-show="activeModal === &#39;delete-reply-3781&#39;" style="display: none;">
+    <div class="modal-content">
+        <form action="https://laravel.io/replies/3781" method="POST">
+            <input type="hidden" name="_token" value="qO5kMeIH8Y1fHysdcn2h4TzuUXssH0onZ0tiw5DM">            <input type="hidden" name="_method" value="DELETE">
+            <div class="flex flex-col justify-between h-full">
+                <div class="overflow-auto">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-hidden="true" @click.prevent="activeModal = false">×</button>
+                        <h4 class="modal-title">Delete Reply</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this reply? This cannot be undone.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="text-gray-600 mr-4" @click.prevent="activeModal = false">Cancel</button>
+                    <button type="submit" class="button button-danger">Delete Reply</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+                
+                                                            <p class="text-center text-gray-800 border-t py-8">
+                            <a href="https://laravel.io/login" class="text-green-darker">Sign in</a> to participate in this thread!
+                        </p>
+                                                </div>  
+            <div class="w-full hidden md:w-1/4 md:pl-3 md:pt-4 md:flex items-center flex-col text-center mb-4" style="height: auto !important;">
+                <div class="flex flex-col mb-4 w-full  items-center ">
+    <div class="mb-4">
+        <a href="https://laravel.io/user/reached">
+            <img src="./Passing $variables to multiple views_ _ Laravel_files/763aeb688d323ecdddf081e7fdea113d(1).jpeg" class="w-full">
+        </a>
+    </div>
+
+    <h2 class="text-2xl text-gray-900 mb-4">Reached</h2>
+
+    
+    
+    
+    
+    <p class="text-gray-600 text-sm mb-4">
+        Joined 27 Feb 2014
+    </p>
+
+    
+    <div>
+                    <a href="https://github.com/Reached" class="text-green-darker text-3xl block flex items-center">
+                <i class="fa fa-github mr-2"></i>
+                <span class="text-base">
+                    @Reached
+                </span>
+            </a>
+            </div>
+</div>
+
+
+
+
+                <div class="reply-options">
+                
+                
+                                </div>
+
+                <div class="w-full" style="height: auto !important;">
+                    <div style="margin-top:25px">
+        <ins class="adsbygoogle sidebar-ad" style="display: block; height: 250px;" data-ad-client="ca-pub-8613969005293129" data-ad-slot="2217240099" data-ad-format="rectangle" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_1_anchor" style="display: block; border: none; height: 250px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 300px; background-color: transparent; overflow: visible;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:300px;height:250px;" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="300" height="250" frameborder="0" src="./Passing $variables to multiple views_ _ Laravel_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!1" data-google-query-id="CKjFwJr41-kCFRAHBgAdxl4A4Q" data-load-complete="true"></iframe></ins></ins></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+
+<p class="text-center px-4 my-2">
+    <a href="https://github.com/sponsors/laravelio" target="_blank" rel="noopener" class="text-xs text-green-darker hover:text-gray-700">
+        Your banner here?
+    </a>
+</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<div class="container mx-auto px-4">
+        <div class="container mx-auto text-center overflow-hidden">
+        <ins class="adsbygoogle footer-ad" data-ad-client="ca-pub-8613969005293129" data-ad-slot="5170706492" data-ad-format="fluid" data-adsbygoogle-status="done" style="height: 90px;"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:936px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:936px;background-color:transparent;"></ins></ins></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+
+<p class="text-center px-4 my-2">
+    <a href="https://github.com/sponsors/laravelio" target="_blank" rel="noopener" class="text-xs text-green-darker hover:text-gray-700">
+        Your banner here?
+    </a>
+</p>
+    </div>
+
+<div class="bg-white">
+    <div class="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-base leading-6 font-semibold uppercase text-gray-600 tracking-wider">
+            We'd like to thank these <strong>amazing companies</strong> for supporting us
+        </p>
+
+        <div class="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-4">
+            <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 px-2">
+                <a class="flex items-center" href="https://laravelshift.com/">
+                    <img class="max-h-12" src="./Passing $variables to multiple views_ _ Laravel_files/laravel-shift.png" alt="Laravel Shift">
+                </a>
+            </div>
+            <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 px-2">
+                <a class="flex items-center" href="https://tinkerwell.app/">
+                    <img class="max-h-12" src="./Passing $variables to multiple views_ _ Laravel_files/tinkerwell.jpg" alt="Tinkerwell">
+                </a>
+            </div>
+            <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 px-2">
+                <a class="flex items-center" href="https://m.do.co/c/7922b1dff899">
+                    <img class="max-h-12" src="./Passing $variables to multiple views_ _ Laravel_files/digitalocean.png" alt="DigitalOcean">
+                </a>
+            </div>
+            <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 px-2">
+                <a class="flex items-center" href="https://usefathom.com/ref/7A8QGC">
+                    <img class="max-h-12" src="./Passing $variables to multiple views_ _ Laravel_files/fathom.png" alt="Fathom">
+                </a>
+            </div>
+        </div>
+        <div class="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-3">
+            <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 px-2">
+                <a class="flex items-center" href="https://forge.laravel.com/">
+                    <img class="max-h-12" src="./Passing $variables to multiple views_ _ Laravel_files/forge.png" alt="Forge">
+                </a>
+            </div>
+            <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 px-2">
+                <a class="flex items-center" href="https://envoyer.io/">
+                    <img class="max-h-12" src="./Passing $variables to multiple views_ _ Laravel_files/envoyer.png" alt="Envoyer">
+                </a>
+            </div>
+            <div class="col-span-2 flex justify-center md:col-span-2 lg:col-span-1 px-2">
+                <a class="flex items-center" href="https://blackfire.io/">
+                    <img class="max-h-12" src="./Passing $variables to multiple views_ _ Laravel_files/blackfire-io.png" alt="Blackfire.io">
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <p class="text-center px-4 my-2">
+    <a href="https://github.com/sponsors/laravelio" target="_blank" rel="noopener" class="text-xs text-green-darker hover:text-gray-700">
+        Your logo here?
+    </a>
+</p>
+        </div>
+    </div>
+</div>
+
+<div class="bg-white">
+    <div class="max-w-screen-xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+        <nav class="-mx-5 -my-2 flex flex-wrap justify-center">
+            <div class="px-5 py-2">
+                <a href="https://laravel.io/terms" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                    Terms
+                </a>
+            </div>
+            <div class="px-5 py-2">
+                <a href="https://laravel.io/privacy" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                    Privacy
+                </a>
+            </div>
+            <div class="px-5 py-2">
+                <a href="javascript:window.Metomic(&#39;ConsentManager:show&#39;)" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                    Cookies
+                </a>
+            </div>
+        </nav>
+        <div class="mt-8 flex justify-center">
+            <a href="https://twitter.com/laravelio" class="text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Twitter</span>
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                </svg>
+            </a>
+            <a href="https://github.com/laravelio" class="ml-6 text-gray-400 hover:text-gray-500">
+                <span class="sr-only">GitHub</span>
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                </svg>
+            </a>
+        </div>
+        <div class="mt-8">
+            <p class="text-center text-base leading-6 text-gray-400">
+                © 2020 Laravel.io - All rights reserved.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="sidebar-ad" class="ad hidden">
+        <ins class="adsbygoogle sidebar-ad" data-ad-client="ca-pub-8613969005293129" data-ad-slot="2217240099" data-ad-format="rectangle">
+        </ins>
+    </div>
+    <div id="footer-ad" class="hidden">
+        <ins class="adsbygoogle footer-ad" data-ad-client="ca-pub-8613969005293129" data-ad-slot="5170706492" data-ad-format="fluid">
+        </ins>
+    </div>
+<!-- Fathom - beautiful, simple website analytics -->
+    <script src="./Passing $variables to multiple views_ _ Laravel_files/script.js.download" site="UXCUXOED" defer=""></script>
+    <!-- / Fathom -->
+
+<script src="./Passing $variables to multiple views_ _ Laravel_files/livewire.js.download" data-turbolinks-eval="false"></script><script data-turbolinks-eval="false">window.livewire = new Livewire();window.livewire_app_url = '';window.livewire_token = 'qO5kMeIH8Y1fHysdcn2h4TzuUXssH0onZ0tiw5DM';/* Make Alpine wait until Livewire is finished rendering to do its thing. */window.deferLoadingAlpine = function (callback) {window.addEventListener('livewire:load', function () {callback();});};document.addEventListener("DOMContentLoaded", function () {window.livewire.start();});var firstTime = true;document.addEventListener("turbolinks:load", function() {/* We only want this handler to run AFTER the first load. */if(firstTime) {firstTime = false;return;}window.livewire.restart();});document.addEventListener("turbolinks:before-cache", function() {document.querySelectorAll('[wire\\:id]').forEach(function(el) {const component = el.__livewire;const dataObject = {data: component.data,events: component.events,children: component.children,checksum: component.checksum,name: component.name,errorBag: component.errorBag,redirectTo: component.redirectTo,};el.setAttribute('wire:initial-data', JSON.stringify(dataObject));});});</script>
+
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" src="./Passing $variables to multiple views_ _ Laravel_files/ads(1).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!0" data-load-complete="true"></iframe></ins></ins></ins><iframe id="google_osd_static_frame_2244910745929" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./Passing $variables to multiple views_ _ Laravel_files/saved_resource(1).html"></iframe><div><div style="display: flex; position: fixed; width: 500px; height: 500px; align-items: flex-end; opacity: 1; transition: opacity 0.5s ease 0.65s; pointer-events: none; background: radial-gradient(at left bottom, rgba(49, 49, 49, 0.23) 0%, rgba(196, 196, 196, 0) 69%); z-index: 2147483647; left: 0px; bottom: 0px;"><iframe title="metomic-iframe-8f6abd49-be5f-4681-a13c-6ecfa828b1ce" name="mtm-frame-prompt" style="display: block !important; overflow: hidden !important; border: 0px !important; margin: 0px 0px 90px !important; position: absolute !important; max-width: unset !important; min-width: unset !important; max-height: unset !important; min-height: unset !important; pointer-events: auto !important; height: 255px !important; width: 360px !important; z-index: 1 !important; bottom: 0px !important; opacity: 1 !important; transform: translate3d(0px, 0%, 0px) !important; transition-property: all !important; transition-duration: 0.5s !important; transition-delay: 300ms !important;" src="./Passing $variables to multiple views_ _ Laravel_files/saved_resource(2).html"></iframe><iframe title="metomic-iframe-ca9b8363-7e36-46fe-aa4d-355483b62e7c" style="display: block !important; overflow: hidden !important; border: 0px !important; margin: 0px !important; position: absolute !important; max-width: unset !important; min-width: unset !important; max-height: unset !important; min-height: unset !important; pointer-events: auto !important; height: 110px !important; width: 110px !important; z-index: 12 !important; bottom: 0px !important; left: -3px !important;" src="./Passing $variables to multiple views_ _ Laravel_files/saved_resource(3).html"></iframe></div></div></body><iframe id="google_esf" name="google_esf" src="./Passing $variables to multiple views_ _ Laravel_files/zrt_lookup.html" data-ad-client="ca-pub-8613969005293129" style="display: none;"></iframe></html>
